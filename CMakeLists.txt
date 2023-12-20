@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_definitions(-std=c++17)
 
-project(RougelikeGame)
+project(RoguelikeGame)
 
 # Set the output directory for executables
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -21,6 +21,6 @@ include_directories(${SDL2_INCLUDE_DIR})
 # Link directories for SDL2 and SDL2_image
 link_directories(${SDL2_LIB_DIR})
 
-add_executable(RougelikeGame src/main.cpp src/game.cpp src/global.cpp)
+add_executable(RoguelikeGame src/main.cpp src/game.cpp src/global.cpp)
 
-target_link_libraries(RougelikeGame SDL2 SDL2_image)
+target_link_libraries(RoguelikeGame SDL2 SDL2_image)

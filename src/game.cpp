@@ -167,7 +167,7 @@ bool init() {
         }
 
         // Create Windows
-        gWindow = SDL_CreateWindow("RougelikeGame", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+        gWindow = SDL_CreateWindow("RoguelikeGame", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
         if (gWindow == NULL) {
             std::cout << "Window could not be created! SDL Error: %s\n" << SDL_GetError() << std::endl;
