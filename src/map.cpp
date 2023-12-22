@@ -24,14 +24,14 @@
 Background::Background() { }
 
 Background::~Background() {
-    gBGTexture.free();
+    bgTexture.free();
 }
 
 bool Background::loadTexture(std::string path) {
-    return gBGTexture.loadFromFile(path);
+    return bgTexture.loadFromFile(path);
 }
 
 void Background::render(int x, int y, SDL_Rect* clip) {
-    gBGTexture.render(x, y, clip);
+    bgTexture.render(x, y, clip);
 }
 

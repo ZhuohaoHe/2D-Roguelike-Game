@@ -17,7 +17,7 @@ Role::Role() {
 }
 
 Role::~Role() {
-    gRoleTexture.free();
+    roleTexture.free();
 }
 
 int Role::getPosX() {
@@ -85,9 +85,9 @@ void Role::move() {
 
 void Role::render(int camX, int camY) {
     // Show the dot relative to the camera
-    gRoleTexture.render(mPosX - camX, mPosY - camY);
+    roleTexture.render(mPosX - camX, mPosY - camY);
 }
 
 bool Role::loadTexture(std::string path) {
-    return gRoleTexture.loadFromFile(path);
+    return roleTexture.loadFromFile(path);
 }

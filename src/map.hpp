@@ -48,7 +48,7 @@ class Background{
         void free();
 
     private:
-        Texture gBGTexture;
+        Texture bgTexture;
 };
 
 #endif

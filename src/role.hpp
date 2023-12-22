@@ -40,7 +40,7 @@ class Role{
     
     private:
 
-        Texture gRoleTexture;
+        Texture roleTexture;
 
         // The X and Y offsets of the role
         int mPosX, mPosY;
