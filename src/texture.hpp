@@ -4,9 +4,10 @@
 #include <string>
 
 #include <SDL.h>
+#include <SDL_image.h>
 
-const std::string BG_PATH = "../res/pic/bg.png";
-const std::string ROLE_PATH = "../res/pic/dot.bmp";
+const std::string BG_PATH = "../assets/pic/bg.png";
+const std::string ROLE_PATH = "../assets/pic/role.png";
 
 class Texture {
     public:
@@ -30,9 +31,5 @@ class Texture {
         int mWidth;
         int mHeight;
 };
-
-extern Texture gBGTexture;
-
-extern Texture gRoleTexture;
 
 #endif

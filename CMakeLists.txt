@@ -21,6 +21,6 @@ include_directories(${SDL2_INCLUDE_DIR})
 # Link directories for SDL2 and SDL2_image
 link_directories(${SDL2_LIB_DIR})
 
-add_executable(RoguelikeGame src/main.cpp src/game.cpp src/global.cpp src/texture.cpp src/role.cpp)
+add_executable(RoguelikeGame src/main.cpp src/game.cpp src/global.cpp src/texture.cpp src/role.cpp src/util.cpp src/map.cpp)
 
 target_link_libraries(RoguelikeGame SDL2 SDL2_image)

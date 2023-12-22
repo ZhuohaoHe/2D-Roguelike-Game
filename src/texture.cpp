@@ -1,8 +1,4 @@
 #include <iostream>
-#include <string>
-
-#include <SDL.h>
-#include <SDL_image.h>
 
 #include "global.hpp"
 #include "texture.hpp"
@@ -70,7 +66,7 @@ void Texture::render(int x, int y, SDL_Rect* clip) {
         renderQuad.w = clip->w;
         renderQuad.h = clip->h;
     }
-
+    
     // render to screen
     SDL_RenderCopyEx(gRenderer, mTexture, clip, &renderQuad, 0.0, NULL, SDL_FLIP_NONE);
 }
@@ -82,7 +78,3 @@ int Texture::getWidth() {
 int Texture::getHeight() {
     return mHeight;
 } 
-
-Texture gBGTexture;
-
-Texture gRoleTexture;

@@ -3,8 +3,8 @@
 
 #include <SDL.h>
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 380;
+const int SCREEN_WIDTH = 960;
+const int SCREEN_HEIGHT = 540;
 
 const int BG_WIDTH = 1920;
 const int BG_HEIGHT = 1080;

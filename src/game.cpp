@@ -1,12 +1,14 @@
-#include<iostream>
-#include<string>
+#include "global.hpp"
+#include "texture.hpp" 
+#include "role.hpp"
+#include "map.hpp"
+
+#include <iostream>
 
 #include <SDL.h>
 #include <SDL_image.h>
 
-#include "global.hpp"
-#include "texture.hpp" 
-#include "role.hpp"
+Texture gBGTexture;
 
 bool init() {
     bool success = true;
@@ -50,27 +52,7 @@ bool init() {
 }
 
 
-bool loadMedia() {
-    bool success = true;
-
-    if (!gRoleTexture.loadFromFile(ROLE_PATH)) {
-        std::cout << "Failed to load role texture image!" << std::endl;
-        success = false;
-    }
-
-    if (!gBGTexture.loadFromFile(BG_PATH)) {
-        std::cout << "Failed to load background texture image!" << std::endl;
-        success = false;
-    }
-
-    return success;
-}
-
 void close() {
-    // Free loaded images
-    gRoleTexture.free();
-    gBGTexture.free();
-
     // Destroy window
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
@@ -83,22 +65,36 @@ void close() {
 }
 
 int gameLoop() {
-        if (!init()){
+    if (!init()){
         std::cout << "Failed to initialize!" << std::endl;
         return -1;
     }
-    if (!loadMedia()) {
-        std::cout << "Failed to load media!" << std::endl;
-        return -1;
-    } 
+
     // Main loop flag
     bool quit = false;
     
     // Event handler
     SDL_Event e;
 
+
     // Role in the game
     Role role;
+
+    // Load role texture
+    if(!role.loadTexture(ROLE_PATH)){
+        std::cout << "Failed to load role texture image!" << std::endl;
+        return -1;
+    }
+
+    // The background
+    Background bg;
+
+    // Load background texture
+    if(!bg.loadTexture(BG_PATH)){
+        std::cout << "Failed to load background texture image!" << std::endl;
+        return -1;
+    }
+
 
     // The Camera Area
     SDL_Rect camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
@@ -144,13 +140,15 @@ int gameLoop() {
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(gRenderer);
 
-        gBGTexture.render(0, 0, &camera);
+        // render background
+        bg.render(0, 0, &camera);
 
         // render the role in the camera area by subtracting the camera offsets from the role's offsets
         role.render(camera.x, camera.y);
 
         SDL_RenderPresent(gRenderer);
     }
+
     close();
 
     return 0;

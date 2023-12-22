@@ -1,15 +1,23 @@
 #include "global.hpp"
 #include "role.hpp"
-#include "texture.hpp"
+#include "util.hpp"
 
 Role::Role() {
     // initialize offsets
-    mPosX = 0;
-    mPosY = 0;
+    mPosX = 20;
+    mPosY = 20;
+    
+    // initialize collision box dimension
+    mCollider.w = roleWidth;
+    mCollider.h = roleHeight;
 
     // initialize velocity
     mVelX = 0;
     mVely = 0;
+}
+
+Role::~Role() {
+    gRoleTexture.free();
 }
 
 int Role::getPosX() {
@@ -72,10 +80,14 @@ void Role::move() {
     if ((mPosY < 0) || (mPosY + roleHeight > BG_HEIGHT)) {
         // Move back
         mPosY -= mVely;
-    }   
-}
+    } 
+}  
 
 void Role::render(int camX, int camY) {
     // Show the dot relative to the camera
     gRoleTexture.render(mPosX - camX, mPosY - camY);
+}
+
+bool Role::loadTexture(std::string path) {
+    return gRoleTexture.loadFromFile(path);
 }

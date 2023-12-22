@@ -4,9 +4,6 @@
 // Set up SDL and create window
 bool init();
 
-// Load media
-bool loadMedia();
-
 // Free media and shut down SDL
 void close();
 

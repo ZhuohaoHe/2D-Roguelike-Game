@@ -1,7 +1,12 @@
 #ifndef ROLE_HPP
 #define ROLE_HPP
 
+#include "texture.hpp"
+
+#include <vector>
 #include <SDL.h>
+
+
 
 // Role in the game
 class Role{
@@ -14,6 +19,8 @@ class Role{
 
         Role();
 
+        ~Role();
+
         // Takes key presses and adjusts the role's direction
         void handleEvent(SDL_Event& e);
 
@@ -25,12 +32,23 @@ class Role{
 
         int getPosX();
         int getPosY();
+
+        // load the texture
+        bool loadTexture(std::string path);
+
+        void free();
     
     private:
+
+        Texture gRoleTexture;
+
         // The X and Y offsets of the role
         int mPosX, mPosY;
         // The velocity of the role
         int mVelX, mVely;
+
+        // The role's collision box
+        SDL_Rect mCollider;
 };
 
 #endif
