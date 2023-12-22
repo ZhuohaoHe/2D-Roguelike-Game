@@ -8,8 +8,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-Texture gBGTexture;
-
 bool init() {
     bool success = true;
 
