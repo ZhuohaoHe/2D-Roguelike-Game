@@ -6,9 +6,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-const std::string BG_PATH = "../assets/pic/bg.png";
-const std::string ROLE_PATH = "../assets/pic/role.png";
-
 class Texture {
     public:
         Texture();

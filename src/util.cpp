@@ -21,7 +21,7 @@ bool checkCollision(SDL_Rect a, SDL_Rect b) {
     bottomB = b.y + b.h;
 
     // If any of the sides from A are outside of B
-    if (leftA > rightB || rightA < leftB || topA < bottomB || bottomA > topB) {
+    if (leftA >= rightB || rightA <= leftB || topA >= bottomB || bottomA <= topB) {
         return false;
     }
 

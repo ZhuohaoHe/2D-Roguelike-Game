@@ -8,6 +8,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+// TODO: make tile texture transparent
+
 
 bool init() {
     bool success = true;
@@ -94,6 +96,19 @@ int gameLoop() {
         return -1;
     }
 
+    Map map;
+    if (!map.loadMapData(MAP_DATA_PATH)) {
+        std::cout << "Failed to load map data!" << std::endl;
+        return -1;
+    }
+
+    if (!map.loadMapTexture(MAP_TEXTURE_PATH)) {
+        std::cout << "Failed to load map texture!" << std::endl;
+        return -1;
+    }
+
+
+
 
     // The Camera Area
     SDL_Rect camera = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
@@ -144,6 +159,8 @@ int gameLoop() {
 
         // render the role in the camera area by subtracting the camera offsets from the role's offsets
         role.render(camera.x, camera.y);
+
+        map.render(camera);
 
         SDL_RenderPresent(gRenderer);
     }

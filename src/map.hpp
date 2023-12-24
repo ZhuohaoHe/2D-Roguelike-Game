@@ -1,38 +1,62 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
+#include <fstream>
+#include "global.hpp"
 #include "texture.hpp"
+#include "util.hpp"
 
-// const int TILE_WIDTH = 80;
-// const int TILE_HEIGHT = 80;
+const int TILE_WIDTH = 80;
+const int TILE_HEIGHT = 80;
+const int TOTLE_TILE_SPRITES = 2;
+const int TOTAL_TILES = 288;
 
-// Texture gTileTexture;
 
-// class Tile{ 
-//     public:
-//         Tile(int x, int y, int type);
 
-//         ~Tile();
+class Tile{ 
+    public:
+        Tile(int x, int y, int type);
 
-//         // Render the tile
-//         void render(const SDL_Rect& camera);
+        int getType();
 
-//         int getType();
+        // Get the collision box
+        SDL_Rect getBox();
 
-//         // Get the collision box
-//         SDL_Rect getBox();
+    private:
 
-//     private:
-//         // The attributes of the tile
-//         SDL_Rect mBox;
+        // The attributes of the tile
+        SDL_Rect mBox;
 
-//         // The tile type
-//         int mType;
-// };
+        // The tile type
+        int mType;
+};
 
-// class Map{
+class Map{
+    public:
+        Map();
 
-// };
+        ~Map();
+
+        // Load the map data
+        bool loadMapData(std::string path);
+
+        // Load the map texture
+        bool loadMapTexture(std::string path);
+
+        // Render the map
+        void render(const SDL_Rect& camera);
+
+        void linkTiles();
+
+    private:
+        // Tiles in map
+        Tile* tiles[TOTAL_TILES];
+
+        Texture mapTexture;
+
+        // Tile clips
+        SDL_Rect tileClips[TOTLE_TILE_SPRITES];
+};
 
 class Background{
     public:
@@ -44,8 +68,6 @@ class Background{
 
         // load the texture
         bool loadTexture(std::string path);
-
-        void free();
 
     private:
         Texture bgTexture;
