@@ -8,7 +8,7 @@
 
 const int TILE_WIDTH = 80;
 const int TILE_HEIGHT = 80;
-const int TOTLE_TILE_SPRITES = 2;
+const int TOTLE_TILE_SPRITES = 3;
 const int TOTAL_TILES = 288;
 
 

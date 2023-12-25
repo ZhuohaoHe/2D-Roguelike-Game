@@ -157,10 +157,10 @@ int gameLoop() {
         // render background
         bg.render(0, 0, &camera);
 
+        map.render(camera);
+
         // render the role in the camera area by subtracting the camera offsets from the role's offsets
         role.render(camera.x, camera.y);
-
-        map.render(camera);
 
         SDL_RenderPresent(gRenderer);
     }
