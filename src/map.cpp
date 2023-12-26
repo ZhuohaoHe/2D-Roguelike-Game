@@ -33,19 +33,24 @@ Map::~Map() {
 
 void Map::linkTiles() {
     tileClips[ 0 ].x = 0;
-    tileClips[ 0 ].y = 80;
+    tileClips[ 0 ].y = 0;
     tileClips[ 0 ].w = TILE_WIDTH;
     tileClips[ 0 ].h = TILE_HEIGHT;
 
-    tileClips[ 1 ].x = 0;
+    tileClips[ 1 ].x = TILE_WIDTH;
     tileClips[ 1 ].y = 0;
     tileClips[ 1 ].w = TILE_WIDTH;
     tileClips[ 1 ].h = TILE_HEIGHT;
 
-    tileClips[ 2 ].x = 80;
-    tileClips[ 2 ].y = 0;
+    tileClips[ 2 ].x = 0;
+    tileClips[ 2 ].y = TILE_HEIGHT;
     tileClips[ 2 ].w = TILE_WIDTH;
     tileClips[ 2 ].h = TILE_HEIGHT;
+
+    tileClips[ 3 ].x = TILE_WIDTH;
+    tileClips[ 3 ].y = TILE_HEIGHT;
+    tileClips[ 3 ].w = TILE_WIDTH;
+    tileClips[ 3 ].h = TILE_HEIGHT;
 }
 
 bool Map::loadMapData(std::string path) {

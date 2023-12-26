@@ -6,13 +6,14 @@
 #include <vector>
 #include <SDL.h>
 
-
+const int ROLE_WIDTH = 32;
+const int ROLE_HEIGHT = 32;
 
 // Role in the game
 class Role{
     public:
-        int roleWidth = 20;
-        int roleHeight = 20;
+        int roleWidth = ROLE_WIDTH;
+        int roleHeight = ROLE_HEIGHT;
 
         // move velocity
         int velocity = 10;

@@ -6,10 +6,10 @@
 #include "texture.hpp"
 #include "util.hpp"
 
-const int TILE_WIDTH = 80;
-const int TILE_HEIGHT = 80;
-const int TOTLE_TILE_SPRITES = 3;
-const int TOTAL_TILES = 288;
+const int TILE_WIDTH = 16;
+const int TILE_HEIGHT = 16;
+const int TOTLE_TILE_SPRITES = 4;
+const int TOTAL_TILES = 256;
 
 
 

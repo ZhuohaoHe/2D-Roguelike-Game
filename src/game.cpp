@@ -8,7 +8,9 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
-// TODO: make tile texture transparent
+// TODO: add collision detection to the tiles
+// TODO: add animated of the role
+// TODO: rewrite the map
 
 
 bool init() {
@@ -154,6 +156,8 @@ int gameLoop() {
         SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
         SDL_RenderClear(gRenderer);
 
+        // the sequence of rendering is important
+        
         // render background
         bg.render(0, 0, &camera);
 
