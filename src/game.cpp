@@ -1,17 +1,7 @@
-#include "global.hpp"
-#include "texture.hpp" 
-#include "role.hpp"
-#include "map.hpp"
+#include "game.hpp"
 
-#include <iostream>
-
-#include <SDL.h>
-#include <SDL_image.h>
-
-// TODO: add collision detection to the tiles
+// TODO: fix the jump bug
 // TODO: add animated of the role
-// TODO: rewrite the map
-
 
 bool init() {
     bool success = true;
@@ -130,6 +120,11 @@ int gameLoop() {
 
         // Move the role
         role.move();
+        role.jumpUpdate();
+
+        if (handle_collision(role.getCollider(), map.getCollider())) {
+            role.moveBack();
+        }
 
         // Center the camera over the role
         camera.x = (role.getPosX() + role.roleWidth / 2) - SCREEN_WIDTH / 2;

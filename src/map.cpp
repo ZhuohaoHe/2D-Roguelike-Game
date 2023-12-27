@@ -1,5 +1,4 @@
 #include "map.hpp"
-#include <iostream>
 
 Tile::Tile(int x, int y, int type) {
     // Get the offsets
@@ -114,8 +113,6 @@ bool Map::loadMapTexture(std::string path) {
     return mapTexture.loadFromFile(path);
 }
 
-
-
 void Map::render(const SDL_Rect& camera) {
     // If the tile is on screen
     for (int i = 0; i < TOTAL_TILES; i ++) {
@@ -127,6 +124,15 @@ void Map::render(const SDL_Rect& camera) {
     }
 }
 
+std::vector<SDL_Rect> Map::getCollider() {
+    std::vector<SDL_Rect> mapCollider;
+    for (int i = 0; i < TOTAL_TILES; i ++) {
+        if (tiles[i]->getType() != 0) {
+            mapCollider.push_back(tiles[i]->getBox());
+        }
+    }
+    return mapCollider;
+}
 
 
 Background::Background() { }

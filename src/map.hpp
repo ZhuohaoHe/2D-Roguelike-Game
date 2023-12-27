@@ -2,16 +2,14 @@
 #define MAP_HPP
 
 #include <fstream>
+#include <vector>
 #include "global.hpp"
 #include "texture.hpp"
 #include "util.hpp"
 
-const int TILE_WIDTH = 16;
-const int TILE_HEIGHT = 16;
+const int TILE_WIDTH = 32;
+const int TILE_HEIGHT = 32;
 const int TOTLE_TILE_SPRITES = 4;
-const int TOTAL_TILES = 256;
-
-
 
 class Tile{ 
     public:
@@ -47,6 +45,9 @@ class Map{
         void render(const SDL_Rect& camera);
 
         void linkTiles();
+
+        // Get the tile collider
+        std::vector<SDL_Rect> getCollider();
 
     private:
         // Tiles in map

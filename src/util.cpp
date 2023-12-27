@@ -24,6 +24,17 @@ bool checkCollision(SDL_Rect a, SDL_Rect b) {
     if (leftA >= rightB || rightA <= leftB || topA >= bottomB || bottomA <= topB) {
         return false;
     }
-
     return true;
+}
+
+bool handle_collision(SDL_Rect roleCollider, std::vector<SDL_Rect> mapCollider) {
+    // Go through the tiles
+    for (int i = 0; i < mapCollider.size(); i ++) {
+        // If the tile is a wall type tile
+        if (checkCollision(roleCollider, mapCollider[i])) {
+            // Move back
+            return true;
+        }
+    }
+    return false;
 }
